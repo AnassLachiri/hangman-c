@@ -7,7 +7,7 @@
 
 char lireCaractere();
 bool isFound(char* word);
-void manipuler(char c, char* word, char* found, int* coups);
+void manipulate(char c, char* word, char* found, int* coups);
 int numWords(FILE* dict);
 static void rmnl(char* text);
 
@@ -63,7 +63,7 @@ int main(int argc, char* argv[]){
     do{
         printf("Il vous reste %d coups a jouer \nQuel est le mot secret ? %s \nProposez une lettre : ", coups, found);
         c = lireCaractere();
-        manipuler(c, word, found, &coups);
+        manipulate(c, word, found, &coups);
         printf("\n");
 
     }while(coups>0 && !isFound(found));
@@ -105,7 +105,7 @@ bool isFound(char* word){
     return true;
 }
 
-void manipuler(char c, char* word, char* found, int* coups){
+void manipulate(char c, char* word, char* found, int* coups){
     int oc = 0;
     for(int i = 0; i<strlen(word); i++){
         if(word[i]==c){
